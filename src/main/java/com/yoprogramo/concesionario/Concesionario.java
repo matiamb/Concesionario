@@ -1,7 +1,7 @@
 
 package com.yoprogramo.concesionario;
 
-import gui.Inicio;
+import com.yoprogramo.concesionario.gui.Inicio;
 
 public class Concesionario {
 

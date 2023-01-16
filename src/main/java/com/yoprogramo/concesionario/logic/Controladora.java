@@ -1,7 +1,7 @@
 
-package logic;
+package com.yoprogramo.concesionario.logic;
 
-import persistence.ControladoraPersistencia;
+import com.yoprogramo.concesionario.persistence.ControladoraPersistencia;
 
 
 

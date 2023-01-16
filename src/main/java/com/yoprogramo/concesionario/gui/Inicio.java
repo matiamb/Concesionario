@@ -1,5 +1,5 @@
 
-package gui;
+package com.yoprogramo.concesionario.gui;
 
 public class Inicio extends javax.swing.JFrame {
 

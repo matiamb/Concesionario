@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package persistence;
+package com.yoprogramo.concesionario.persistence;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,7 +13,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import logic.Automovil;
+import com.yoprogramo.concesionario.logic.Automovil;
 import persistence.exceptions.NonexistentEntityException;
 
 public class AutomovilJpaController implements Serializable {
@@ -23,7 +23,7 @@ public class AutomovilJpaController implements Serializable {
     }
     
     public AutomovilJpaController() {
-        emf = Persistence.createEntityManagerFactory ("");
+        emf = Persistence.createEntityManagerFactory ("ConcesionarioPU");
     }
     
     private EntityManagerFactory emf = null;

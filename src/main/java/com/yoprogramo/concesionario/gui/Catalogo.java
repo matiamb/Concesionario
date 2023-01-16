@@ -1,5 +1,5 @@
 
-package gui;
+package com.yoprogramo.concesionario.gui;
 
 
 public class Catalogo extends javax.swing.JFrame {

@@ -1,7 +1,7 @@
 
-package gui;
+package com.yoprogramo.concesionario.gui;
 
-import logic.Controladora;
+import com.yoprogramo.concesionario.logic.Controladora;
 
 
 public class Carga extends javax.swing.JFrame {

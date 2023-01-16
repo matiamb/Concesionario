@@ -1,5 +1,5 @@
 
-package logic;
+package com.yoprogramo.concesionario.logic;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
