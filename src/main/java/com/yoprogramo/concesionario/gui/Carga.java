@@ -2,6 +2,8 @@
 package com.yoprogramo.concesionario.gui;
 
 import com.yoprogramo.concesionario.logic.Controladora;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 
 public class Carga extends javax.swing.JFrame {
@@ -214,6 +216,8 @@ public class Carga extends javax.swing.JFrame {
         
         control.guardar(marca, modelo, motor, color, patente, puertas);
         
+        mostrarMsj("Guardado con exito", "Info", "Guardado");
+        
         Limpiar();
         
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -229,6 +233,20 @@ public class Carga extends javax.swing.JFrame {
         txtColor.setText("");
         txtPatente.setText("");
         txtPuertas.setText("");
+    }
+    
+    public void mostrarMsj (String mensaje, String tipo, String titulo){
+    
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if(tipo.equals("Info")){
+                optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);}
+        else if(tipo.equals("Error")){
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+                JDialog dialog = optionPane.createDialog(titulo);
+                dialog.setAlwaysOnTop(true);
+                dialog.setVisible(true);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
