@@ -34,7 +34,7 @@ public class Carga extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
         btnAtrasCarga = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,7 +67,12 @@ public class Carga extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Limpiar");
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -101,7 +106,7 @@ public class Carga extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(txtPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnLimpiar)
                         .addGap(18, 18, 18)
                         .addComponent(btnGuardar)))
                 .addContainerGap())
@@ -136,7 +141,7 @@ public class Carga extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
-                    .addComponent(jButton2)))
+                    .addComponent(btnLimpiar)))
         );
 
         btnAtrasCarga.setText("Atras");
@@ -207,15 +212,29 @@ public class Carga extends javax.swing.JFrame {
         String patente = txtPatente.getText();
         String puertas = txtPuertas.getText();
         
-        control.guardar(marca, modelo, motor, color, patente, puertas); 
+        control.guardar(marca, modelo, motor, color, patente, puertas);
+        
+        Limpiar();
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        Limpiar();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void Limpiar() {
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtMotor.setText("");
+        txtColor.setText("");
+        txtPatente.setText("");
+        txtPuertas.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtrasCarga;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
