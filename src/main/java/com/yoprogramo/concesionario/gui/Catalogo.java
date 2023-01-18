@@ -1,9 +1,15 @@
 
 package com.yoprogramo.concesionario.gui;
 
+import com.yoprogramo.concesionario.logic.Automovil;
+import com.yoprogramo.concesionario.logic.Controladora;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 
 public class Catalogo extends javax.swing.JFrame {
-
+    
+    Controladora control = new Controladora();
    
     public Catalogo() {
         initComponents();
@@ -17,7 +23,7 @@ public class Catalogo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaAutos = new javax.swing.JTable();
         btnEditar = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
         btnAtrasCatalogo = new javax.swing.JButton();
@@ -27,7 +33,7 @@ public class Catalogo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Fira Sans", 1, 18)); // NOI18N
         jLabel1.setText("Catalogo de Automoviles");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -38,7 +44,7 @@ public class Catalogo extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaAutos);
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +120,34 @@ public class Catalogo extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAtrasCatalogoActionPerformed
 
-   
+    private void cargarTabla() {
+        //Definir el modelo para la tabla
+        DefaultTableModel tabla = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        //Le pongo nombres a las columnas
+        String titulos[] = {"Id", "Marca", "Modelo", "Motor", "Color", "Patente", "Cantidad de puertas"};
+        tabla.setColumnIdentifiers(titulos);
+        
+        //Traigo los datos de la DB
+        List <Automovil> listaAutos = control.traerAutos();
+        
+        //recorro la lista y muestro los datos
+        if (listaAutos != null){
+            for (Automovil auto : listaAutos){
+                //Uso Object pq tengo que guardar distintos tipos de datos (int,strings,etc)
+                Object[] objeto = {auto.getId(), auto.getMarca(), auto.getModelo(),auto.getMotor(), 
+                    auto.getColor(), auto.getPatente(), auto.getCantidadPuertas()};
+                tabla.addRow(objeto);
+            }
+        }
+        
+        tablaAutos.setModel(tabla);
+    }   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtrasCatalogo;
@@ -123,6 +156,6 @@ public class Catalogo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaAutos;
     // End of variables declaration//GEN-END:variables
 }

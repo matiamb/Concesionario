@@ -2,8 +2,10 @@
 package com.yoprogramo.concesionario.gui;
 
 import com.yoprogramo.concesionario.logic.Controladora;
+import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Carga extends javax.swing.JFrame {
