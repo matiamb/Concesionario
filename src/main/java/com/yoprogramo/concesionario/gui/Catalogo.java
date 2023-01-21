@@ -4,6 +4,8 @@ package com.yoprogramo.concesionario.gui;
 import com.yoprogramo.concesionario.logic.Automovil;
 import com.yoprogramo.concesionario.logic.Controladora;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -135,9 +137,42 @@ public class Catalogo extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        if (tablaAutos.getRowCount() > 0){
+            if (tablaAutos.getSelectedRow() != -1){
+                int autoId = (int) tablaAutos.getValueAt(tablaAutos.getSelectedRow(), 0);
+                
+                control.borrarAuto(autoId);
+                
+                mostrarMsj("Borrado Exitoso", "Info", "Borrado!");
+                
+                cargarTabla();               
+                
+            }
+            
+            else{
+                mostrarMsj("Por favor seleccione un elemento a borrar", "Error","Error!");
+            }
+        }
         
+        else {
+            mostrarMsj("No hay elementos para borrar!", "Error", "Error!");
+        }
     }//GEN-LAST:event_btnBorrarActionPerformed
 
+    public void mostrarMsj (String mensaje, String tipo, String titulo){
+    
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if(tipo.equals("Info")){
+                optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);}
+        else if(tipo.equals("Error")){
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+                JDialog dialog = optionPane.createDialog(titulo);
+                dialog.setAlwaysOnTop(true);
+                dialog.setVisible(true);
+        
+    }
+    
     private void cargarTabla() {
         //Definir el modelo para la tabla
         DefaultTableModel tabla = new DefaultTableModel() {
