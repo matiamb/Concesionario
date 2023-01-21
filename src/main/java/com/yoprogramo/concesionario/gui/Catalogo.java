@@ -29,6 +29,11 @@ public class Catalogo extends javax.swing.JFrame {
         btnAtrasCatalogo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Fira Sans", 1, 18)); // NOI18N
         jLabel1.setText("Catalogo de Automoviles");
@@ -54,6 +59,11 @@ public class Catalogo extends javax.swing.JFrame {
         });
 
         btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
         btnAtrasCatalogo.setText("Atras");
         btnAtrasCatalogo.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +129,14 @@ public class Catalogo extends javax.swing.JFrame {
     private void btnAtrasCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasCatalogoActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnAtrasCatalogoActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        cargarTabla();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void cargarTabla() {
         //Definir el modelo para la tabla

@@ -2,6 +2,7 @@
 package com.yoprogramo.concesionario.persistence;
 
 import com.yoprogramo.concesionario.logic.Automovil;
+import java.util.List;
 
 
 public class ControladoraPersistencia {
@@ -11,6 +12,10 @@ public class ControladoraPersistencia {
     public void guardar(Automovil auto) {
         
         autojpa.create(auto);
+    }
+
+    public List<Automovil> traerAutos() {
+        return autojpa.findAutomovilEntities();
     }
     
 }

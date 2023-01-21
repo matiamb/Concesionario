@@ -2,6 +2,7 @@
 package com.yoprogramo.concesionario.logic;
 
 import com.yoprogramo.concesionario.persistence.ControladoraPersistencia;
+import java.util.List;
 
 
 
@@ -21,6 +22,10 @@ public class Controladora {
         auto.setCantidadPuertas(puertas);
         
         controlpersis.guardar(auto);
+    }
+    
+    public List<Automovil> traerAutos(){
+       return controlpersis.traerAutos();
     }
     
 }
