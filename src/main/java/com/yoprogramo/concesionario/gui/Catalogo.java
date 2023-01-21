@@ -125,7 +125,15 @@ public class Catalogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        if (tablaAutos.getRowCount() > 0){
+            if(tablaAutos.getSelectedRow() != -1){
+                int autoId = (int) tablaAutos.getValueAt(tablaAutos.getSelectedRow(), 0);
+                Edicion editar = new Edicion(autoId);
+                editar.setVisible(true);
+                editar.setLocationRelativeTo(null);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnAtrasCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasCatalogoActionPerformed

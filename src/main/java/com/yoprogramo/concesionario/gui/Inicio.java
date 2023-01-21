@@ -16,7 +16,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnCarga = new javax.swing.JButton();
         btnLista = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,7 +37,12 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Salir");
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,7 +61,7 @@ public class Inicio extends javax.swing.JFrame {
                             .addComponent(btnCarga))
                         .addGap(140, 140, 140))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(btnSalir)
                         .addGap(172, 172, 172))))
         );
         layout.setVerticalGroup(
@@ -69,7 +74,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(btnLista)
                 .addGap(37, 37, 37)
-                .addComponent(jButton3)
+                .addComponent(btnSalir)
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -88,13 +93,17 @@ public class Inicio extends javax.swing.JFrame {
         catalogo.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnListaActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCarga;
     private javax.swing.JButton btnLista;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
